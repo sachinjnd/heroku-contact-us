@@ -38,7 +38,7 @@ app.get('/submit', function(req, res) {
     mailgun.messages().send(data, function (err, body) {
         //If there is an error, render the error page
         if (err) {
-            res.send(err);
+            res.send("failed");
             console.log("got an error: ", err);
         }
         //Else we can greet    and leave
