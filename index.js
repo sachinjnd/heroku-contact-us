@@ -23,6 +23,13 @@ var from_who = process.env.FROM_EMAIL;
 var to_who = 'sachingarg.space@gmail.com';
 
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
+
 app.post('/submit', function(req, res) {
 
     //We pass the api_key and domain to the wrapper, or it won't be able to identify + send emails
