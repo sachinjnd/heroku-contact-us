@@ -17,9 +17,10 @@ app.set('view engine', 'ejs');
 var api_key = process.env.MAILGUN_API_KEY;
 var domain = process.env.YOUR_DOMAIN;
 var from_who = process.env.FROM_EMAIL;
+var to_who = 'sachingarg.space@gmail.com';
 
 
-app.get('/submit', function(req, res) {
+app.post('/submit', function(req, res) {
 
     //We pass the api_key and domain to the wrapper, or it won't be able to identify + send emails
     var mailgun = new Mailgun({apiKey: api_key, domain: domain});
@@ -28,10 +29,10 @@ app.get('/submit', function(req, res) {
     //Specify email data
       from: from_who,
     //The email to contact
-      to: 'sachinjnd@gmail.com',
+      to: to_who,
     //Subject and text data  
-      subject: 'Hello from Mailgun',
-      html: 'yoyo'
+      subject: 'sachingarg.space - ' + req.body.email,
+      html: req.body.message + '<br/><br/>Regards<br/>' + req.body.name
     }
 
     //Invokes the method to send emails given the above data with the helper library
