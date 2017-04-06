@@ -14,9 +14,9 @@ app.set('view engine', 'ejs');
   response.render('pages/index');
 });*/
 
-var api_key = 'MAILGUN-API-KEY';
-var domain = 'YOUR-DOMAIN.com';
-var from_who = 'your@email.com';
+var api_key = process.env.MAILGUN_API_KEY;
+var domain = process.env.YOUR_DOMAIN;
+var from_who = process.env.FROM_EMAIL;
 
 
 app.get('/submit', function(req, res) {
@@ -28,10 +28,10 @@ app.get('/submit', function(req, res) {
     //Specify email data
       from: from_who,
     //The email to contact
-      to: req.params.mail,
+      to: 'sachingarg.space@gmail.com',
     //Subject and text data  
       subject: 'Hello from Mailgun',
-      html: ''
+      html: 'yoyo'
     }
 
     //Invokes the method to send emails given the above data with the helper library
