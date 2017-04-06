@@ -28,7 +28,7 @@ app.get('/submit', function(req, res) {
     //Specify email data
       from: from_who,
     //The email to contact
-      to: 'sachingarg.space@gmail.com',
+      to: 'sachinjnd@gmail.com',
     //Subject and text data  
       subject: 'Hello from Mailgun',
       html: 'yoyo'
